@@ -1,5 +1,5 @@
 import './App.css';
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Post from './components/Post';
@@ -9,14 +9,15 @@ import Home from './components/Home';
 
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar></Navbar>
+        <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn}></Navbar>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/login" element={<Login setLoggedIn={setLoggedIn}/>}></Route>
+          <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn}/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

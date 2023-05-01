@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = (props) => {
   const navigate = useNavigate();
+
+  const {setLoggedIn} = props;
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -35,6 +37,7 @@ const Signup = () => {
     console.log(response);
     if ('username' in response && 'password' in response) {
       alert("Successfully signed up");
+      setLoggedIn(true);
       navigate('/');
     } else {
       const errArray = response.errors.map(error => {
