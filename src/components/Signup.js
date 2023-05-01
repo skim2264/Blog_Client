@@ -34,7 +34,7 @@ const Signup = (props) => {
       .catch((err) => {
         setErrors(err);
       })
-    console.log(response);
+
     if ('username' in response && 'password' in response) {
       alert("Successfully signed up");
       setLoggedIn(true);

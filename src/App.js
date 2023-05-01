@@ -18,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn}/>}></Route>
           <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn}/>}></Route>
+          <Route path="/:postId" element={<Post></Post>}/>
         </Routes>
       </BrowserRouter>
     </div>

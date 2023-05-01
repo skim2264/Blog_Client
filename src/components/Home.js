@@ -22,15 +22,19 @@ const Home = () => {
       .catch((err) => {
         console.error(err);
       });
-    console.log(response);
+
     setPosts(response);
+  }
+
+  const openPost = () => {
+
   }
 
   return (
     <div className="home-div">
       {posts 
         ? posts.map(post => {
-          return <Post post={post}></Post>
+          return <Post post={post} key={post._id}></Post>
         })
         : null
       }
