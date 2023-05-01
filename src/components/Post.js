@@ -3,14 +3,20 @@ import {useLocation} from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 
 import Comments from "./Comments";
+import CommentForm from "./CommentForm";
 
 const Post = (props) => {
   let location = useLocation();
   const {post} = location.state || props;
   const [openComments, setOpenComments] = useState(false);
+  const [openForm, setOpenForm] = useState(false);
 
   const toggleComments = () => {
     setOpenComments(!openComments);
+  }
+
+  const toggleCommentForm = () => {
+    setOpenForm(!openForm);
   }
 
   return (
@@ -23,10 +29,15 @@ const Post = (props) => {
       <p>{post.timestamp}</p>
       <p>{post.author.username}</p>
       {openComments
-      ? <Comments></Comments>
-      : <p onClick={toggleComments}>{post.comments.length} Comments</p>}
-      {location.state
-        ? <button type="button">Add a comment</button>
+        ? <Comments></Comments>
+        : <p onClick={toggleComments}>{post.comments.length} Comments</p>
+      }
+      {openForm
+        ? <CommentForm></CommentForm>
+        : null
+      }
+      {location.state && !openForm
+        ? <button type="button" onClick={toggleCommentForm}>Add a comment</button>
         : null
       }
     </div>

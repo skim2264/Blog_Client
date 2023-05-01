@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 5px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Home */
+.home-div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Post */
+.post-div {
+  background: grey;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px rgb(202, 204, 209);
+  padding: 10px;
+}

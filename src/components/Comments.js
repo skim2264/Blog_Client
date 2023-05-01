@@ -26,13 +26,12 @@ const Comments = () => {
         console.error(err);
       });
     setComments(response);
-    console.log(response);
   }
 
   return (
     <div className="comment-div">
       {comments.map((comment) => {
-        return <Comment comment={comment}></Comment>
+        return <Comment comment={comment} key={comment._id}></Comment>
       })}
     </div>
   )

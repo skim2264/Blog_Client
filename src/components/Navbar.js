@@ -12,18 +12,16 @@ const Navbar = (props) => {
   }
 
   return (
-    <div className="navbar-div">
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        {(!loggedIn)
-          ?<div>
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/signup">Signup</NavLink>
-          </div>
-          :<button id="logoutButton" onClick={logout}>Logout</button>
-        }
-      </nav>
-    </div>
+    <nav className="navbar">
+      <NavLink to="/">Home</NavLink>
+      {(!loggedIn)
+        ?<div>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/signup">Signup</NavLink>
+        </div>
+        :<button id="logoutButton" onClick={logout}>Logout</button>
+      }
+    </nav>
   )
 };
 
