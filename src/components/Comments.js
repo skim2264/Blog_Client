@@ -18,7 +18,7 @@ const Comments = () => {
       headers: { 
         Accept: "application/json",
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`}
+        Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`}
     }
     const response = await fetch(`https://blog-api-production-9c1d.up.railway.app/api/posts/${params.postId}/comments/`, requestOptions)
       .then(data => data.json())
@@ -29,7 +29,8 @@ const Comments = () => {
   }
 
   return (
-    <div className="comment-div">
+    <div className="comments-div">
+      <h2 className="comment-header">Comments:</h2>
       {comments.map((comment) => {
         return <Comment comment={comment} key={comment._id}></Comment>
       })}

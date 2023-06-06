@@ -9,35 +9,58 @@ const Post = (props) => {
   let location = useLocation();
   const {post} = location.state || props;
   const [openComments, setOpenComments] = useState(false);
-  const [openForm, setOpenForm] = useState(false);
+
+  const created_date = new Date(post.createdAt);
+  const created_date_formatted = created_date.toLocaleDateString();
+
+  const updated_date = new Date(post.updatedAt);
+  const updated_date_formatted = updated_date.toLocaleDateString();
 
   const toggleComments = () => {
-    setOpenComments(!openComments);
+    if (location.state) {
+      setOpenComments(!openComments);
+    }
   }
 
-  const toggleCommentForm = () => {
-    setOpenForm(!openForm);
+  const addClass = (e) => {
+    if (location.state) {
+      e.target.classList.add("commentToggle");
+    }
+  }
+
+  const removeClass = (e) => {
+    if (location.state) {
+      e.target.classList.remove("commentToggle");
+    }
   }
 
   return (
     <div className="post-div">
       {location.state
-        ? <p>{post.title}</p>
-        : <NavLink to={{pathname:'/' + post._id}} state={{post}} key={post._id}><p>{post.title}</p></NavLink>
+        ? <p className = "post-title">{post.title}</p>
+        : <NavLink to={{pathname:'/' + post._id}} state={{post}} key={post._id}><p className="post-link">{post.title}</p></NavLink>
       }
-      <p>{post.post_text}</p>
-      <p>{post.timestamp}</p>
-      <p>{post.author.username}</p>
+
+      <div className="post-author-timestamp">
+        <p className = "post-author">by {post.author.username}</p>
+        <div className="post-timestamp-div">
+          <p className = "post-timestamp">Created: {created_date_formatted}</p>
+          <p className = "post-timestamp">Last Updated: {updated_date_formatted}</p>
+        </div>
+      </div>
+      
+      <div className="post-image-text">
+        <img src={post.image} alt="" className="post-image"></img>
+        <p className = "post-text">{post.post_text}</p>
+      </div>
+      
+      <hr></hr>
       {openComments
         ? <Comments></Comments>
-        : <p onClick={toggleComments}>{post.comments.length} Comments</p>
+        : <p onClick={toggleComments} onMouseOver={addClass} onMouseOut={removeClass} className="post-comments">{post.comments.length} Comments</p>
       }
-      {openForm
+      {location.state
         ? <CommentForm></CommentForm>
-        : null
-      }
-      {location.state && !openForm
-        ? <button type="button" onClick={toggleCommentForm}>Add a comment</button>
         : null
       }
     </div>

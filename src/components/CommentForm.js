@@ -10,6 +10,7 @@ const CommentForm = () => {
     const value = e.target.value;
     setCommentText(value);
   }
+
   const submitForm = async(e) => {
     e.preventDefault();
     const requestOptions = {
@@ -17,23 +18,23 @@ const CommentForm = () => {
       headers: { 
         Accept: "application/json",
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`},
-      body: JSON.stringify({text: commentText})
+        Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`},
+      body: JSON.stringify({"text": commentText})
     }
  
-    const response = await fetch(`https://blog-api-production-9c1d.up.railway.app/api/posts/${params.postId}/comments/create`, requestOptions)
+    const req = await fetch(`https://blog-api-production-9c1d.up.railway.app/api/posts/${params.postId}/comments/create`, requestOptions)
       .then(response => response.json())
       .catch((err) => {
         setErrors(err);
     })
 
-    console.log(response);
+    console.log(req);
 
-    if ('text' in response) {
+    if ("text" in req) {
       alert("Comment Added");
       window.location.reload(false);
     } else {
-      const errArray = response.errors.map(error => {
+      const errArray = req.errors.map(error => {
         return error.msg
       })
       setErrors(errArray);
@@ -43,9 +44,9 @@ const CommentForm = () => {
   return (
     <form className="comment-form" onSubmit={submitForm}>
       <label htmlFor="comment-text"></label>
-      <input name="comment-text" id="comment-text" placeholder="New Comment" onChange={handleChange}></input>
-      <button type="submit">Add Comment</button>
-      {errors ? errors.map((error, index) => {
+      <textarea name="comment-text" id="comment-text" placeholder="New Comment" onChange={handleChange}></textarea>
+      <button type="submit" className="submit-button comment-submit">Add Comment</button>
+      {(errors.length > 0) ? errors.map((error, index) => {
         return <p key={index}>{error}</p>
       }): null}
     </form>

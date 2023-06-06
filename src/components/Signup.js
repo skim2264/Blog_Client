@@ -37,8 +37,7 @@ const Signup = (props) => {
 
     if ('username' in response && 'password' in response) {
       alert("Successfully signed up");
-      setLoggedIn(true);
-      navigate('/');
+      navigate('/login');
     } else {
       const errArray = response.errors.map(error => {
         return error.msg
@@ -48,12 +47,13 @@ const Signup = (props) => {
   }
   return (
     <div className="signup-div">
-      <form className="login-form" onSubmit={signupSubmit}>
-        <label htmlFor="username">Username: </label>
-        <input name="username" placeholder="username" onChange={handleUsernameChange} value={username}></input>
-        <label htmlFor="password">Password: </label>
-        <input name="password" type="password" placeholder="password" onChange={handlePasswordChange} value={password}></input>
-        <button type="submit" >Sign Up</button>
+      <h1>Sign Up</h1>
+      <form className="signup-form" onSubmit={signupSubmit}>
+        <label htmlFor="username"></label>
+        <input name="username" placeholder="Username" onChange={handleUsernameChange} value={username}></input>
+        <label htmlFor="password"></label>
+        <input name="password" type="password" placeholder="Password" onChange={handlePasswordChange} value={password}></input>
+        <button type="submit" className="submit-button">Sign Up</button>
       </form>
       {errors ? errors.map((error, index) => {
         return <p key={index}>{error}</p>
