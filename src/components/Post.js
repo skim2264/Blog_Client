@@ -48,11 +48,8 @@ const Post = (props) => {
           <p className = "post-timestamp">Last Updated: {updated_date_formatted}</p>
         </div>
       </div>
-      
-      <div className="post-image-text">
-        <img src={post.image} alt="" className="post-image"></img>
-        <p className = "post-text">{post.post_text}</p>
-      </div>
+
+      <p className = "post-text">{post.post_text}</p>
       
       <hr></hr>
       {openComments

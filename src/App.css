@@ -88,10 +88,6 @@ a {
   height: 100%;
 }
 
-.post-image-text {
-  flex-wrap: wrap;
-}
-
 .post-title, .post-link {
   font-weight: bold;
   font-size: 20px;
@@ -121,13 +117,6 @@ a {
 .post-text {
   margin-left: 20px;
   padding-bottom: 20px;
-}
-
-.post-image {
-  max-height: 200px;
-  object-fit: contain;
-  float: left;
-  margin: 10px;
 }
 
 .post-comments {

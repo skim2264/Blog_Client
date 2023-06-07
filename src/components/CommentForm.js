@@ -28,8 +28,6 @@ const CommentForm = () => {
         setErrors(err);
     })
 
-    console.log(req);
-
     if ("text" in req) {
       alert("Comment Added");
       window.location.reload(false);

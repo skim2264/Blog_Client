@@ -21,13 +21,14 @@ const Home = (props) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`}
     }
-    const response = await fetch("https://blog-api-production-9c1d.up.railway.app/api/posts", requestOptions)
+    const req = await fetch("https://blog-api-production-9c1d.up.railway.app/api/posts", requestOptions)
       .then(data => data.json())
+      .then(response => response.filter(post => !post.isPrivate))
       .catch((err) => {
         console.error(err);
       });
-
-    setPosts(response);
+    
+    setPosts(req);
   }
 
   return (

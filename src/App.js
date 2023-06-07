@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home loggedIn={loggedIn}/>}/>
             <Route path="/login" element={<Login setLoggedIn={setLoggedIn}/>}/>
-            <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn}/>}/>
+            <Route path="/signup" element={<Signup/>}/>
             <Route path="/:postId" element={<Post></Post>}/>
           </Routes>
       </BrowserRouter>
