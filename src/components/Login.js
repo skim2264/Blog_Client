@@ -53,9 +53,9 @@ const Login = (props) => {
       <h1> Login </h1>
       <form className="login-form" onSubmit={loginSubmit}>
         <label htmlFor="username"></label>
-        <input name="username" placeholder="Username" onChange={handleUsernameChange} value={username}></input>
+        <input name="username" placeholder="Username" autocomplete="username" onChange={handleUsernameChange} value={username}></input>
         <label htmlFor="password"></label>
-        <input name="password" type="password" placeholder="Password" onChange={handlePasswordChange} value={password}></input>
+        <input name="password" type="password" placeholder="Password" autocomplete="current-password" onChange={handlePasswordChange} value={password}></input>
         <button type="submit" className="submit-button">Login</button>
       </form>
       {error ? <p>{error}</p>: null}

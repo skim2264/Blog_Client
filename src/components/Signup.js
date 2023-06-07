@@ -50,9 +50,9 @@ const Signup = (props) => {
       <h1>Sign Up</h1>
       <form className="signup-form" onSubmit={signupSubmit}>
         <label htmlFor="username"></label>
-        <input name="username" placeholder="Username" onChange={handleUsernameChange} value={username}></input>
+        <input name="username" placeholder="Username" autocomplete="username" onChange={handleUsernameChange} value={username}></input>
         <label htmlFor="password"></label>
-        <input name="password" type="password" placeholder="Password" onChange={handlePasswordChange} value={password}></input>
+        <input name="password" type="password" placeholder="Password" autocomplete="new-password" onChange={handlePasswordChange} value={password}></input>
         <button type="submit" className="submit-button">Sign Up</button>
       </form>
       {errors ? errors.map((error, index) => {
