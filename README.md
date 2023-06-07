@@ -1,3 +1,17 @@
+# Blog Project
+
+[Live Demo](https://skim2264.github.io/Blog_Client/)
+[Link to API](https://skim2264.github.io/Blog-API/)
+[Link to CMS](https://skim2264.github.io/Blog-CMS/)
+
+## Build Using
+- Node/Express - API Backend
+- Passport JS for local & JWT authentication
+- Mongodb
+- Next.js / React
+- API deployed using Railway
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
