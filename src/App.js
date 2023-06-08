@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Post from './components/Post';
 import Login from './components/Login';
@@ -12,7 +12,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState('accessToken' in sessionStorage);
   return (
     <div className="app-div">
-      <BrowserRouter>
+      <HashRouter>
         <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn}></Navbar>
           <Routes>
             <Route path="/" element={<Home loggedIn={loggedIn}/>}/>
@@ -20,7 +20,7 @@ function App() {
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/:postId" element={<Post></Post>}/>
           </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
