@@ -1,8 +1,8 @@
 # Blog Project
 
 - [Live Demo](https://skim2264.github.io/Blog_Client/)
-- [Link to API](https://skim2264.github.io/Blog-API/)
-- [Link to CMS](https://skim2264.github.io/Blog-CMS/)
+- [Link to API](https://github.com/skim2264/Blog-API)
+- [Link to CMS](https://github.com/skim2264/Blog-CMS)
 
 ## Build Using
 - Node/Express - API Backend
