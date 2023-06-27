@@ -18,7 +18,7 @@ Blog Project from the [Odin Project's](https://www.theodinproject.com/) curricul
 ## Installation
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ```
-git clone [https://github.com/skim2264/Members-Only.git](https://github.com/skim2264/Blog_Client.git)https://github.com/skim2264/Blog_Client.git
+git clone https://github.com/skim2264/Blog_Client.git
 cd Blog_Client
 npm install
 npm run start
