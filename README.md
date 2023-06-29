@@ -13,7 +13,7 @@ Blog Project from the [Odin Project's](https://www.theodinproject.com/lessons/no
 - MongoDB
 - React
 - API deployed using Railway
-
+- Postman for testing requests to the API
 
 ## Installation
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
